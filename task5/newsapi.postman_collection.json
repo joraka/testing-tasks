@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "cfe77489-b110-4bb5-a325-b3327bbbfe67",
+		"name": "newsapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10518058",
+		"_collection_link": "https://bit-team-9341.postman.co/workspace/BIT~4410a6db-ef5d-4a56-b2f1-0602140ae45e/collection/10518058-cfe77489-b110-4bb5-a325-b3327bbbfe67?action=share&source=collection_link&creator=10518058"
+	},
+	"item": [
+		{
+			"name": "top headlines",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v2/top-headlines?apiKey={{API_KEY}}&q=nvidia",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v2",
+						"top-headlines"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "us",
+							"disabled": true
+						},
+						{
+							"key": "apiKey",
+							"value": "{{API_KEY}}"
+						},
+						{
+							"key": "q",
+							"value": "nvidia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "everything",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v2/everything?q=domain&apiKey={{API_KEY}}&pageSize=5",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "domain"
+						},
+						{
+							"key": "apiKey",
+							"value": "{{API_KEY}}"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "everything with bearer token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{API_KEY}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v2/everything?q=domain&pageSize=5",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "domain"
+						},
+						{
+							"key": "apiKey",
+							"value": "{{API_KEY}}",
+							"disabled": true
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "everything with prerequest token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// pm.request.addHeader(`Authorization: ${pm.collectionVariables.get(\"API_KEY\")}`)\r",
+							"// pm.request.addHeader(`X-Api-Key: ${pm.collectionVariables.get(\"API_KEY\")}`)\r",
+							"\r",
+							"pm.request.addHeader({\r",
+							"    key: \"X-Api-Key\",\r",
+							"    value: pm.collectionVariables.get(\"API_KEY\")\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v2/everything?q=domain&pageSize=5",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "domain"
+						},
+						{
+							"key": "apiKey",
+							"value": "{{API_KEY}}",
+							"disabled": true
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "everything unauthorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v2/everything?q=rtx 5060&pageSize=5",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "rtx 5060"
+						},
+						{
+							"key": "apiKey",
+							"value": "{{API_KEY}}",
+							"disabled": true
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "everything with query",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Source Name</th>\r",
+							"        <th>Author</th>\r",
+							"        <th>Title</th>\r",
+							"        <th>Description</th>\r",
+							"        <th>Published At</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response.articles}}\r",
+							"        <tr>\r",
+							"            <td>{{source.name}}</td>\r",
+							"            <td>{{author}}</td>\r",
+							"            <td>{{title}}</td>\r",
+							"            <td>{{description}}</td>\r",
+							"            <td>{{publishedAt}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()}\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/v2/everything?q=rtx 5060&apiKey={{API_KEY}}&pageSize=5",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "rtx 5060"
+						},
+						{
+							"key": "apiKey",
+							"value": "{{API_KEY}}"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_KEY",
+			"value": "14a33949c93d47888b7e19cd493c2e7d",
+			"type": "string"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "https://newsapi.org",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,32 @@
+TS1 Main page
+    TC1.1 Going from reject empty
+    TC1.2 Going from dropdown search
+    TC1.3 Going to reject empty
+    TC1.4 Going to dropdown search
+    TC1.5 Depature date validation
+    TC1.6 Depature date dropdown calendar
+    TC1.7 Depature date time validation
+    TC1.8 Travel both ways checkbox
+    TC1.9 Travel back date validation
+    TC1.10 Travel back date dropdown calendar
+    TC1.11 Travel back date time validation
+    TC1.12 Find ticket button
+
+TS2 Ticket select page
+    TC2.1 Display tickets
+    TC2.2 Purchase ticket button
+    TC2.3 Select other day tickets
+
+TS3 Purchase ticket
+    TC3.1 Select traveling people count
+    TC3.2 Display price
+    TC3.3 Display purchases
+    TC3.4 Display travel time
+    TC3.5 Display transportation agency
+    TC3.6 Select discount
+    TC3.7 Enter coupon
+    TC3.8 Select payment country
+    TC3.9 Select payment method
+    TC3.10 Email validity
+    TC3.11 Accept terms
+    TC3.12 Purchase button
