@@ -1,0 +1,16 @@
+{
+  "name": "task11-hw-test-unit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "arrayHelpers.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^30.0.2"
+  }
+}
