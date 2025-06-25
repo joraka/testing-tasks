@@ -25,7 +25,7 @@ describe("User API Positive", () => {
 
   test("POST /api/users should create new user", async () => {
     const newUserObj = {
-      name: "Bob",
+      name: "Make one kebab",
     };
 
     const res = await request(app).post("/api/users").send(newUserObj);
@@ -43,5 +43,3 @@ describe("User API Negative", () => {
     expect(res.body.message).toBe("User not found");
   });
 });
-
-console.log(app);
