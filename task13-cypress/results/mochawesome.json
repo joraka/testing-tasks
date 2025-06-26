@@ -1,0 +1,102 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-26T17:18:10.483Z",
+    "end": "2025-06-26T17:18:13.594Z",
+    "duration": 3111,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "500b04c4-ea36-426d-9760-4220a3cd32f2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec.cy.js",
+      "file": "cypress\\e2e\\spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f0157ceb-9d55-4a5d-8c9d-cbc441a9a653",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logins with valid data",
+              "fullTitle": "template spec Logins with valid data",
+              "timedOut": null,
+              "duration": 1685,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.saucedemo.com/\");\nconst username = \"standard_user\";\nconst password = \"secret_sauce\";\ncy.get(\"#login_button_container input#user-name\").type(username);\ncy.get(\"#login_button_container input#password\").type(password);\ncy.get('input[data-test=\"login-button\"]').click();\ncy.get('[data-test=\"title\"]').contains(\"Products\", {\n  matchCase: true\n}).should(\"be.visible\");",
+              "err": {},
+              "uuid": "d9eb48a4-e620-4b15-9907-264fa1bba217",
+              "parentUUID": "f0157ceb-9d55-4a5d-8c9d-cbc441a9a653",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d9eb48a4-e620-4b15-9907-264fa1bba217"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1685,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "results"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
